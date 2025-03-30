@@ -3,19 +3,22 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import SignUpPage from "./pages/SignUpPage";
 import LoginPage from "./pages/LoginPage";
-import SettingPage from "./pages/SettingPage";
+import SettingsPage from "./pages/SettingPage";
 import ProfilePage from "./pages/ProfilePage";
 import Navbar from "./components/Navbar";
 import { useAuthStore } from "./stores/useAuthStore";
+import { useThemeStore } from "./stores/useThemeStore";
 import { useEffect } from "react";
 import { Loader } from "lucide-react";
-import {Toaster} from 'react-hot-toast'
+import { Toaster } from "react-hot-toast";
 function App() {
-  const { authUser, checkAuth, isCheckingAuth } = useAuthStore();
+  const { authUser, checkAuth, isCheckingAuth , onlineUsers } = useAuthStore();
+  const { theme } = useThemeStore();
   useEffect(() => {
     checkAuth();
   }, [checkAuth]);
-  console.log({ authUser });
+  console.log(onlineUsers);
+  
   if (!authUser && isCheckingAuth)
     return (
       <div className="flex items-center justify-center h-screen">
@@ -24,7 +27,7 @@ function App() {
     );
 
   return (
-    <div className="">
+    <div data-theme={theme} style={{height : "1000px"}}>
       <Navbar />
       <Routes>
         <Route
@@ -39,13 +42,13 @@ function App() {
           path="/login"
           element={!authUser ? <LoginPage /> : <Navigate to={"/"} />}
         />
-        <Route path="/setting" element={<SettingPage />} />
+        <Route path="/settings" element={<SettingsPage />} />
         <Route
           path="/profile"
           element={authUser ? <ProfilePage /> : <Navigate to={"/login"} />}
         />
       </Routes>
-      <Toaster/>
+      <Toaster />
     </div>
   );
 }
