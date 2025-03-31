@@ -1,5 +1,0 @@
-lession 1 init project 
-- Frontend npm create vite@latest 
-- Backend npm init -y 
-        npm i express mongooes bcryptjs cookie-parser cloudinary dotenv socket.io
-        npm i nodemon -D
