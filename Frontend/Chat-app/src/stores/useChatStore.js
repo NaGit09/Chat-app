@@ -4,6 +4,9 @@ import { axiosInstanace } from "../lib/axios.js";
 import React from "react";
 import { EarOff, Users } from "lucide-react";
 import {useAuthStore} from "./useAuthStore";
+// useChatStore is a Zustand store that 
+// manages chat-related state and actions for a chat application.
+// It handles fetching users, messages, sending messages, and managing socket connections for real-time updates.
 export const useChatStore = create((set, get) => ({
   messages: [],
   users: [],  

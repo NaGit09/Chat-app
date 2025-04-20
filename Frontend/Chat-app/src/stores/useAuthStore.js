@@ -3,6 +3,9 @@ import { axiosInstanace } from "../lib/axios.js";
 import toast from "react-hot-toast";
 import { io } from "socket.io-client";
 const BASE_URL = import.meta.env.MODE === "development" ? "http://localhost:5001" : "/";
+// useAuthStore is a Zustand store 
+// that manages authentication state and 
+// socket connection for a chat application.
 export const useAuthStore = create((set, get) => ({
   authUser: null,
   isSigningUp: false,

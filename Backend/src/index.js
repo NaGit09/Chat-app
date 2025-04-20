@@ -11,9 +11,10 @@ import path from 'path'
 dotenv.config();
 const __dirname = path.resolve()
 const PORT = process.env.PORT;
+// init server 
 app.use(express.json());
 app.use(cookiesParser());
-
+//accept cors from frontend
 app.use(
   cors({
     origin: "http://localhost:5173",

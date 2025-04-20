@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
 import User from "../model/user.model.js";
-
+// check if user is logged in or not
 export const protectRoute = async (req, res, next) => {
   try {
     // Lấy token từ cookie

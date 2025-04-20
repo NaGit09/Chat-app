@@ -2,7 +2,8 @@ import User from "../model/user.model.js";
 import { generateToken } from "../lib/utils.js";
 import bcrypt from "bcryptjs";
 import cloudinary from "../lib/cloudinary.js";
-
+// create authentication api 
+// for signup , login , logout , update profile pic, check auth
 export const signup = async (req, res) => {
   const { fullName, email, password } = req.body;
   try {

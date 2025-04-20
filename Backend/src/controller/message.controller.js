@@ -2,6 +2,7 @@ import User from "../model/user.model.js";
 import Message from "../model/message.model.js";
 import { v2 as cloudinary } from "cloudinary";
 import {getReceiverSocketId , io} from '../lib/socket.js'
+// create Message api 
 export const getUserFromSidebar = async (req, res) => {
   try {
     const loggedInUserId = req.user._id;
